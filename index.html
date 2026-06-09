@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hetiko Limited – Solar · CCTV · Fencing · Electrical</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:      #1E88D8;
+    --orange:    #F26522;
+    --navy:      #13235F;
+    --navy-lt:   #1c3080;
+    --blue-lt:   #e8f4fd;
+    --orange-lt: #fef0e8;
+    --white:     #ffffff;
+    --off-white: #F5F7FA;
+    --mid:       #E2E8F0;
+    --body-txt:  #374151;
+    --muted:     #6B7280;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body:    'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--off-white); color: var(--body-txt); font-family: var(--font-body); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 68px;
+    border-bottom: 3px solid var(--blue);
+    box-shadow: 0 1px 12px rgba(30,136,216,0.10);
+  }
+.logo{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 8px; /* controls space between logo and HETIKO */
+}
+
+.logo img{
+    height: 55px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+  .nav-logo {
+    font-family: var(--font-display); font-weight: 900; font-size: 1.55rem;
+    color: var(--navy); letter-spacing: 0.04em; text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.95rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--navy); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--orange); color: var(--white) !important;
+    padding: 0.45rem 1.2rem;
+    font-family: var(--font-display) !important; font-weight: 700 !important;
+    font-size: 0.9rem !important; letter-spacing: 0.08em !important;
+    text-transform: uppercase !important; text-decoration: none !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #d4541a !important; color: var(--white) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: 0.3s; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; padding-top: 68px;
+    background: var(--navy);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+  /* Blue diagonal panel — right side */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 46%; height: 100%;
+    background: var(--blue);
+    clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; padding: 6rem 5vw 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.85rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 2px; background: var(--orange);
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.95; letter-spacing: -0.01em;
+    color: var(--white); margin-bottom: 1.5rem;
+  }
+  .hero h1 em { color: var(--orange); font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.75;
+    color: rgba(255,255,255,0.65); max-width: 440px; margin-bottom: 2.5rem;
+  }
+  .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block; padding: 0.9rem 2.2rem;
+    background: var(--orange); color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #d4541a; transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-block; padding: 0.9rem 2.2rem;
+    background: transparent; color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.35);
+    cursor: pointer; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--blue); color: #7ac8f5; }
+
+  /* Hero stats panel */
+  .hero-stats {
+    display: flex; flex-direction: column; gap: 0;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+  }
+  .stat-item { padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-item:first-child { padding-top: 0; }
+  .stat-num {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 2.8rem; line-height: 1; color: var(--blue);
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 0.78rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.12em; color: rgba(255,255,255,0.45); margin-top: 0.35rem;
+  }
+
+  /* ── INFO BAND ── */
+  .about-band {
+    background: var(--blue); padding: 1.3rem 5vw;
+    display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .about-band p {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+    color: var(--white); letter-spacing: 0.04em; text-align: center;
+  }
+  .band-dot { color: rgba(255,255,255,0.4); font-size: 1.2rem; line-height: 1; }
+
+  /* ── SHARED SECTION STYLES ── */
+  section { scroll-margin-top: 68px; }
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-tag {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.8rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange);
+    display: inline-block; margin-bottom: 0.75rem;
+  }
+  .section-header h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05;
+    color: var(--navy);
+  }
+  .section-header p {
+    max-width: 540px; margin: 1rem auto 0;
+    font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: var(--muted);
+  }
+
+  /* ── SERVICES ── */
+  #services { padding: 6rem 5vw; background: var(--off-white); }
+  .services-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--mid);
+    border-top: 3px solid var(--blue);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .service-card:hover {
+    box-shadow: 0 8px 32px rgba(30,136,216,0.13);
+    transform: translateY(-3px);
+  }
+
+  /* ── IMAGE SLOT ── */
+  .service-img-slot {
+    width: 100%; height: 180px;
+    background: var(--blue-lt);
+    border-bottom: 1px solid var(--mid);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.5rem;
+    position: relative; overflow: hidden;
+  }
+  /* When an <img> is placed inside .service-img-slot it will fill the slot */
+  .service-img-slot img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  /* Placeholder label — hidden once a real img is present */
+  .service-img-slot .slot-label {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.75rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--blue); opacity: 0.7;
+    pointer-events: none; user-select: none;
+  }
+  .service-img-slot .slot-icon {
+    opacity: 0.25; pointer-events: none;
+  }
+  /* Hide placeholder visuals once an img is loaded */
+  .service-img-slot img ~ .slot-label,
+  .service-img-slot img ~ .slot-icon { display: none; }
+
+  .service-body { padding: 1.6rem 1.6rem 1.8rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+  .service-body h3 {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.3rem;
+    color: var(--navy); letter-spacing: 0.02em;
+  }
+  .service-body p { font-size: 0.875rem; line-height: 1.7; color: var(--muted); font-weight: 400; }
+
+  /* ── WHY US ── */
+  #why { padding: 6rem 5vw; background: var(--navy); }
+  #why .section-header h2 { color: var(--white); }
+  #why .section-header p { color: rgba(255,255,255,0.5); }
+  #why .section-tag { color: var(--orange); }
+  .why-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+  }
+  .why-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 3px solid var(--orange);
+    padding: 2rem 1.5rem;
+  }
+  .why-num {
+    font-family: var(--font-display); font-weight: 900; font-size: 2.6rem;
+    color: var(--blue); line-height: 1; margin-bottom: 0.75rem;
+  }
+  .why-item h4 {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+    color: var(--white); margin-bottom: 0.5rem; letter-spacing: 0.02em;
+  }
+  .why-item p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+  /* ── CONTACT ── */
+  #contact { padding: 6rem 5vw; background: var(--white); }
+  .contact-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  }
+  .contact-details h3 {
+    font-family: var(--font-display); font-weight: 900; font-size: 1.8rem;
+    color: var(--navy); margin-bottom: 2rem; letter-spacing: 0.02em;
+  }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.75rem; }
+  .contact-icon {
+    flex-shrink: 0; width: 42px; height: 42px;
+    background: var(--blue-lt); display: flex; align-items: center; justify-content: center;
+  }
+  .contact-icon svg { width: 20px; height: 20px; }
+  .contact-item-label {
+    font-family: var(--font-display); font-weight: 600; font-size: 0.72rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange);
+    margin-bottom: 0.25rem;
+  }
+  .contact-item-val { font-size: 0.95rem; color: var(--body-txt); line-height: 1.55; font-weight: 400; }
+  .contact-item-val a { color: var(--navy); text-decoration: none; }
+  .contact-item-val a:hover { color: var(--blue); }
+
+  /* Map card */
+  .map-card { background: var(--off-white); border: 1px solid var(--mid); overflow: hidden; }
+  .map-placeholder {
+    background: var(--blue-lt);
+    aspect-ratio: 4/3;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem; padding: 2rem;
+    border-bottom: 3px solid var(--blue);
+  }
+  .map-placeholder svg { opacity: 0.45; }
+  .map-placeholder p {
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+    color: var(--navy); letter-spacing: 0.04em; text-align: center;
+  }
+  .map-placeholder span { font-weight: 300; font-size: 0.85rem; color: var(--muted); display: block; margin-top: 0.2rem; }
+  .map-cta {
+    padding: 1.4rem 1.6rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .map-cta p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.4; }
+  .map-cta a {
+    flex-shrink: 0;
+    font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--blue); text-decoration: none; white-space: nowrap;
+  }
+  .map-cta a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); padding: 2.5rem 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    border-top: 3px solid var(--orange);
+  }
+  .footer-logo {
+    font-family: var(--font-display); font-weight: 900; font-size: 1.25rem;
+    color: var(--white); letter-spacing: 0.04em;
+  }
+  .footer-logo span { color: var(--orange); }
+  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-align: center; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none;
+    font-family: var(--font-display); letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--blue); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--white); padding: 1.5rem 5vw;
+      border-bottom: 2px solid var(--blue); z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 4rem; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 0; }
+    .hero-stats .stat-item { flex: 1 1 40%; border-right: 1px solid rgba(255,255,255,0.08); }
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">
+    <img src="./images/45f84d6a-ee9b-4689-965a-6b668dbab0be.png" alt="Hetiko Limited">
+</div>
+  <a href="#" class="nav-logo">HETIKO<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+        
+      <div class="hero-eyebrow">Hetiko Limited</div>
+      <h1>Power.<br>Security.<br><em>Built Right.</em></h1>
+      <p class="hero-sub">Commercial and industrial electrical installations, solar systems, CCTV surveillance, and perimeter fencing — delivered with precision in Nairobi and beyond.</p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-primary">Get a Quote</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">Solar</div>
+        <div class="stat-label">Design · Install · Maintain</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">CCTV</div>
+        <div class="stat-label">Surveillance Systems</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">HV / LV</div>
+        <div class="stat-label">Commercial & Industrial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAND -->
+<div class="about-band">
+  <p>Mwiki Road, Near Jaza Supermarket, Nairobi</p>
+  <span class="band-dot">·</span>
+  <p>Certified Electrical Contractors</p>
+  <span class="band-dot">·</span>
+  <p>Commercial & Industrial Specialists</p>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1100px;margin:0 auto;padding:6rem 0 0;">
+    <div class="section-header">
+      <span class="section-tag">What We Do</span>
+      <h2>Our Core Services</h2>
+      <p>From a single solar panel to a full industrial electrical fit-out, Hetiko delivers end-to-end solutions you can rely on.</p>
+    </div>
+  </div>
+  <div class="services-grid" style="padding-bottom:6rem;">
+
+    <!-- Solar -->
+    <div class="service-card">
+      <div class="service-img-slot">
+        
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmFEDd3bEu4p2Vfbmpqhhz0lPlnYCTBtnBdw&s" alt="Solar installation" />
+        <svg class="slot-icon" width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="10" stroke="#1E88D8" stroke-width="2.5"/>
+          <line x1="26" y1="4" x2="26" y2="10" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="26" y1="42" x2="26" y2="48" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="4" y1="26" x2="10" y2="26" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="42" y1="26" x2="48" y2="26" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="10.5" y1="10.5" x2="14.7" y2="14.7" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="37.3" y1="37.3" x2="41.5" y2="41.5" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="41.5" y1="10.5" x2="37.3" y2="14.7" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="14.7" y1="37.3" x2="10.5" y2="41.5" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="slot-label">Add image here</span>
+      </div>
+      <div class="service-body">
+        <h3>Solar Systems</h3>
+        <p>Residential and commercial solar installation, from rooftop panels to full off-grid setups. We size, supply, and commission solar energy systems built to last in the Kenyan climate.</p>
+      </div>
+    </div>
+
+    <!-- CCTV -->
+    <div class="service-card">
+      <div class="service-img-slot">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcEi_OBlQ75CJYzK9vickXk9NVhhUwoUJi2A&s" alt="CCTV installation" />
+        <svg class="slot-icon" width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="16" width="28" height="20" rx="3" stroke="#1E88D8" stroke-width="2.5"/>
+          <polygon points="34,20 46,14 46,38 34,32" stroke="#1E88D8" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <circle cx="18" cy="26" r="4" stroke="#1E88D8" stroke-width="2"/>
+          <line x1="18" y1="36" x2="18" y2="44" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="10" y1="44" x2="26" y2="44" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="slot-label">Add image here</span>
+      </div>
+      <div class="service-body">
+        <h3>CCTV & Surveillance</h3>
+        <p>IP and analog camera installation, DVR/NVR setup, remote monitoring, and maintenance. We design surveillance systems that cover every angle of your property or facility.</p>
+      </div>
+    </div>
+
+    <!-- Fencing -->
+    <div class="service-card">
+      <div class="service-img-slot">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD4gqDGAyA_v5lZvQuEDPx7wUGF9CrVDBogQ&s" alt="Perimeter fencing" />
+        <svg class="slot-icon" width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="22" width="40" height="20" rx="1" stroke="#1E88D8" stroke-width="2.5"/>
+          <line x1="14" y1="14" x2="14" y2="22" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="26" y1="14" x2="26" y2="22" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="38" y1="14" x2="38" y2="22" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <polygon points="14,10 17,14 11,14" fill="#1E88D8"/>
+          <polygon points="26,10 29,14 23,14" fill="#1E88D8"/>
+          <polygon points="38,10 41,14 35,14" fill="#1E88D8"/>
+        </svg>
+        <span class="slot-label">Add image here</span>
+      </div>
+      <div class="service-body">
+        <h3>Perimeter Fencing</h3>
+        <p>Electric fencing, barbed wire, chain-link, and palisade installations for homes, compounds, warehouses, and industrial sites. Security perimeters engineered for your threat level.</p>
+      </div>
+    </div>
+
+    <!-- Commercial Electrical -->
+    <div class="service-card">
+      <div class="service-img-slot">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUv2PISAXz561OzHgDWPeKTYa3NGm1Sr0mgA&s" alt="Commercial electrical installation" /> 
+        <svg class="slot-icon" width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="36" height="36" rx="2" stroke="#1E88D8" stroke-width="2.5"/>
+          <polyline points="16,34 22,22 28,29 34,18" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="14" y1="38" x2="38" y2="38" stroke="#1E88D8" stroke-width="1.5" stroke-dasharray="2 2"/>
+        </svg>
+        <span class="slot-label">Add image here</span>
+      </div>
+      <div class="service-body">
+        <h3>Commercial Electrical</h3>
+        <p>Full electrical fit-outs for offices, retail spaces, malls, and hospitality properties. Wiring, DB boards, lighting design, backup power, and compliance certification.</p>
+      </div>
+    </div>
+
+    <!-- Industrial Electrical -->
+    <div class="service-card">
+      <div class="service-img-slot">
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa-1_rMoBc1KrLXcgTGKPbYENB0DMFUmr7qw&s" alt="Industrial electrical installation" />
+        <svg class="slot-icon" width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="30" width="40" height="16" rx="1" stroke="#1E88D8" stroke-width="2.5"/>
+          <polygon points="6,30 14,14 24,20 30,14 46,30" stroke="#1E88D8" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <line x1="20" y1="38" x2="20" y2="46" stroke="#1E88D8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="32" y1="38" x2="32" y2="46" stroke="#1E88D8" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="26" cy="38" r="3" stroke="#1E88D8" stroke-width="2"/>
+        </svg>
+        <span class="slot-label">Add image here</span>
+      </div>
+      <div class="service-body">
+        <h3>Industrial Electrical</h3>
+        <p>High-voltage installations, motor control centres, transformer wiring, earthing systems, and industrial panel upgrades. Safe, code-compliant work for factories and plants.</p>
+      </div>
+    </div>
+
+    <!-- Maintenance -->
+    <div class="service-card">
+      <div class="service-img-slot">
+             <img src="https://www.shutterstock.com/image-photo/electricity-electrical-maintenance-service-engineer-260nw-1965935203.jpg" alt="Electrical maintenance" />
+        <svg class="slot-icon" width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M38 14 L44 8 L44 12 L40 16 Z" stroke="#1E88D8" stroke-width="2" fill="#1E88D8" opacity="0.4"/>
+          <path d="M38 14 L26 26" stroke="#1E88D8" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="20" cy="32" r="10" stroke="#1E88D8" stroke-width="2.5"/>
+          <line x1="20" y1="26" x2="20" y2="38" stroke="#1E88D8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="32" x2="26" y2="32" stroke="#1E88D8" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="slot-label">Add image here</span>
+      </div>
+      <div class="service-body">
+        <h3>Maintenance & Support</h3>
+        <p>Scheduled servicing, fault diagnosis, emergency repairs, and system upgrades. Keep your electrical and security infrastructure running at peak performance year-round.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div style="max-width:1100px;margin:0 auto;padding:6rem 0;">
+    <div class="section-header">
+      <span class="section-tag">Why Hetiko</span>
+      <h2>What Sets Us Apart</h2>
+      <p>We combine technical expertise with a commitment to safety, code compliance, and work that actually lasts.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <h4>Certified Expertise</h4>
+        <p>Our engineers hold current certification for electrical and low-voltage systems, working to Kenyan standards and IEC codes.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <h4>End-to-End Service</h4>
+        <p>One team for design, supply, installation, and after-sale support — no handover gaps, no finger-pointing.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <h4>Honest Quoting</h4>
+        <p>Clear, itemised quotes before any work begins. No hidden costs, no surprises at invoice.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <h4>Safety First</h4>
+        <p>Every installation passes internal quality checks and is documented for the client's records and future audits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="max-width:1100px;margin:0 auto;padding:6rem 0;">
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2>Talk to Us</h2>
+      <p>Ready to start a project or need a site assessment? Reach out — we respond fast.</p>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-details">
+        <h3>Contact Details</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 13.5c-1.2 0-2.4-.2-3.5-.6-.3-.1-.7 0-.9.3l-1.5 1.5A11 11 0 015.3 8.9l1.5-1.5c.3-.3.4-.6.3-.9A11 11 0 016.5 3C6.5 2.4 6 2 5.5 2h-3C2 2 1.5 2.5 1.5 3 1.5 11.6 8.4 18.5 17 18.5c.5 0 1-.5 1-1v-3c0-.5-.5-1-1-1z" stroke="#1E88D8" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-val">
+              <a href="tel:+254702948656">0702 948 656</a><br/>
+              <a href="tel:+254718378144">0718 378 144</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="4" width="16" height="12" rx="2" stroke="#1E88D8" stroke-width="1.5"/>
+              <polyline points="2,4 10,12 18,4" stroke="#1E88D8" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-val"><a href="mailto:hetiko197@gmail.com">hetiko197@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2C7.2 2 5 4.2 5 7c0 4.5 5 11 5 11s5-6.5 5-11c0-2.8-2.2-5-5-5z" stroke="#1E88D8" stroke-width="1.5"/>
+              <circle cx="10" cy="7" r="1.5" stroke="#1E88D8" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-val">Mwiki Road, Near Jaza Supermarket<br/>Nairobi, Kenya</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" stroke="#1E88D8" stroke-width="1.5"/>
+              <polyline points="10,6 10,10 13,12" stroke="#1E88D8" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Working Hours</div>
+            <div class="contact-item-val">Mon – Sat: 7:00 AM – 6:00 PM<br/>Emergency callouts available</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4C16.3 4 10 10.3 10 18c0 10.8 12 26 14 26s14-15.2 14-26c0-7.7-6.3-14-14-14z" stroke="#1E88D8" stroke-width="2.5" fill="none"/>
+            <circle cx="24" cy="18" r="4" stroke="#1E88D8" stroke-width="2.5"/>
+          </svg>
+          <p>Hetiko Limited<span>Mwiki Road · Near Jaza Supermarket · Nairobi</span></p>
+        </div>
+        <div class="map-cta">
+          <p>Find us on Mwiki Road, just past Jaza Supermarket heading towards Kasarani.</p>
+          <a href="https://www.google.com/maps/dir//Jaza+Supermarket+-+Utawala,+Utawala+Utawala+Road,+Nairobi/@-1.1246703,36.9621565,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x182f6d0070e85e85:0xc140e25f4262f33b!2m2!1d36.9686913!2d-1.2794911?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Open in Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">HETIKO<span>.</span></div>
+  <p>© 2025 Hetiko Limited · All rights reserved</p>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
