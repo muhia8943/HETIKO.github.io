@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  emailjs.init("pcHUloRmu0mYJJBbB");
+  emailjs.init("yuAn-EzI8Igr3DWFn");
 
   document
     .getElementById("quoteForm")
@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       try {
         await emailjs.send(
-          "service_s4zzipk",
-          "template_1mt5py4",
+          "service_axutkw2",
+          "template_m7b0voh",
           templateParams
         );
 
